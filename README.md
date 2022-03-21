@@ -22,6 +22,7 @@ This library is licensed under the MIT-0 License. See the LICENSE file.
 #####################
 
 **rds-rman-plsql-code.sql**
+
 The PL/SQL Code is to create a SP in RDS Oracle RMAN --> rds-rman-plsql-code.sql
 
 ## Important Step: to execute the procedure you need to grant the following privilege
