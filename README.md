@@ -28,10 +28,12 @@ The PL/SQL Code is to create a SP in RDS Oracle RMAN --> rds-rman-plsql-code.sql
 ## Important Step: to execute the procedure you need to grant the following privilege
 
 grant create any procedure to <oracle_user>;
+grant select any dictionary to <oracle_user>;
 
 **example**:
   grant create any procedure to admin;
-  
+  grant select any dictionary to admin;
+
   and then execute the procedure PL/SQL code to compile and this will compile the procedure with no errors.
   
  * the above steps are needed when following error is seen*
