@@ -1,3 +1,10 @@
+/* grants needed for admin user -- can be given specific grants at object level aswell */
+
+grant create any procedure to admin;
+grant select any dictionary to admin;
+
+/* Procedure creation continued - if the compilation fails especially on Oracle SE try removing the '/' from last line and re-compile */
+
 CREATE OR REPLACE PROCEDURE rman_s3(rman_bucket in varchar2) as
 n_rec_cnt    PLS_INTEGER :=0;
 p_backup_cur_status    VARCHAR2(30);
