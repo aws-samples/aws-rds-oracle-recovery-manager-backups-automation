@@ -25,6 +25,14 @@ This library is licensed under the MIT-0 License. See the LICENSE file.
 
 The PL/SQL Code is to create a SP in RDS Oracle RMAN --> rds-rman-plsql-code.sql
 
+## Import Note: Use a Dedicated S3 bucket and avoid any other irrelevant files in it - if other files are found the backup procedure will run in endless loop
+
+## Second import note while executing the procedure
+
+if command -- exec rman_s3 (<bucket_name>); fails then run the bucket name with single quotes as follows
+
+exec rman_s3 ('<bucket_name>');
+
 ## Important Step: to execute the procedure you need to grant the following privilege
 
 grant create any procedure to <oracle_user>;
