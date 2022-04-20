@@ -5,6 +5,9 @@ grant select any dictionary to admin;
 
 /* Procedure creation continued - if the compilation fails especially on Oracle SE try removing the '/' from last line and re-compile */
 
+/* Import Note: The Procedure will run in loop if any other non relevant files are in the backups S3 bucket. Recommended to use Only a dedicated s3 bucket */
+
+
 CREATE OR REPLACE PROCEDURE rman_s3(rman_bucket in varchar2) as
 n_rec_cnt    PLS_INTEGER :=0;
 p_backup_cur_status    VARCHAR2(30);
@@ -20,7 +23,7 @@ v_cnt_num NUMBER(4):=0;
 v_task_status VARCHAR2(30);
 v_bkp_files_tot NUMBER;
 v_task_rman_bkp varchar2(30);
-status_bucket varchar2(30):=rman_bucket||'/Status';
+status_bucket varchar2(200):=rman_bucket||'/Status';
 v_mtime number(1);
 
 ltype utl_file.file_type;
