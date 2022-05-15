@@ -120,7 +120,7 @@ dbms_output.put_line(v_task_id);
 		
 dbms_output.put_line(v_bkp_files_Tot);
 
-			WHILE  ( V_CNT_NUM < (((v_bkp_files_tot + 1)*2 +1 ) ))
+			WHILE  ( V_CNT_NUM < (((v_bkp_files_tot)*2 +1 ) ))
 				LOOP
 					dbms_lock.sleep(1);
 				dbms_output.put_line(V_CNT_NUM);
