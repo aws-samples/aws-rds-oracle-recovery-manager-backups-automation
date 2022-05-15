@@ -7,6 +7,8 @@ grant select any dictionary to admin;
 
 /* Import Note: The Procedure will run in loop if any other non relevant files are in the backups S3 bucket. Recommended to use Only a dedicated s3 bucket */
 
+/* Execute instructions post creation of below procedure - execute by passing the bucket name in single quotes --> exec rman_s3 ('<bucket_name>'); */
+
 
 CREATE OR REPLACE PROCEDURE rman_s3(rman_bucket in varchar2) as
 n_rec_cnt    PLS_INTEGER :=0;
