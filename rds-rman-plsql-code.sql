@@ -2,6 +2,7 @@
 
 grant create any procedure to admin;
 grant select any dictionary to admin;
+grant execute any procedure to admin;
 
 /* Procedure creation continued - if the compilation fails especially on Oracle SE try removing the '/' from last line and re-compile */
 
