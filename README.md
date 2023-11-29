@@ -33,6 +33,8 @@ if command -- exec rman_s3 (<bucket_name>); fails then run the bucket name with 
 
 exec rman_s3 ('<bucket_name>');
 
+## * The RDS constructs and syntax change can update time to time, please follow and update the code as is. This code is open source for public to modify as needed
+
 ## Important Step: to execute the procedure you need to grant the following privilege
 
 grant create any procedure to <oracle_user>;
