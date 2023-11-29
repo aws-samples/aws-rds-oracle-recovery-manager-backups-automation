@@ -26,7 +26,8 @@ v_cnt_num NUMBER(4):=0;
 v_task_status VARCHAR2(30);
 v_bkp_files_tot NUMBER;
 v_task_rman_bkp varchar2(30);
-status_bucket varchar2(200):=rman_bucket||'/Status';
+status_bucket varchar2(200):=rman_bucket;
+status_path varchar2(100) := '/Status';
 v_mtime number(1);
 
 ltype utl_file.file_type;
@@ -140,7 +141,7 @@ dbms_output.put_line(v_bkp_files_Tot);
 				utl_file.fclose(ltype);
 				
 				/* Uploading status file to status Bucket */
-				sql_stmt_3 := 'SELECT rdsadmin.rdsadmin_s3_tasks.upload_to_s3(p_bucket_name'||'=>'''||status_bucket||''',p_prefix =>'||'''job_status.txt'''||',p_s3_prefix =>'||''''''||',p_directory_name=>'||'''BKP_DIR_STS'''||') AS TASK_ID FROM DUAL';
+				sql_stmt_3 := 'SELECT rdsadmin.rdsadmin_s3_tasks.upload_to_s3(p_bucket_name'||'=>'''||status_bucket||''',p_prefix =>'||'''job_status.txt'''||',p_s3_prefix =>'||'''status_path'''||',p_directory_name=>'||'''BKP_DIR_STS'''||') AS TASK_ID FROM DUAL';
 
 				/* uploading status file */
 		EXECUTE IMMEDIATE sql_stmt_3 into v_task_status; 
@@ -159,7 +160,7 @@ dbms_output.put_line(v_bkp_files_Tot);
 				utl_file.fclose(ltype);
 				
 				/* Uploading status file to status Bucket */
-				sql_stmt_3 := 'SELECT rdsadmin.rdsadmin_s3_tasks.upload_to_s3(p_bucket_name'||'=>'''||status_bucket||''',p_prefix =>'||'''job_status.txt'''||',p_s3_prefix =>'||''''''||',p_directory_name=>'||'''BKP_DIR_STS'''||') AS TASK_ID FROM DUAL';
+				sql_stmt_3 := 'SELECT rdsadmin.rdsadmin_s3_tasks.upload_to_s3(p_bucket_name'||'=>'''||status_bucket||''',p_prefix =>'||'''job_status.txt'''||',p_s3_prefix =>'||'''status_path'''||',p_directory_name=>'||'''BKP_DIR_STS'''||') AS TASK_ID FROM DUAL';
 
 				
 				/* uploading status file */
